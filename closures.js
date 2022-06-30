@@ -43,3 +43,32 @@ f();
 // h is called then f function will be called again
 // f is reassgined by h
 // output is 1554
+
+// Example #2
+
+const boardPassengers = function (n, wait) {
+	const perGroup = n / 3;
+
+	// Takes in function and seconds
+	// 1000 = 1 sec
+	setTimeout(function () {
+		console.log(`We are now boarding all ${n} passengers`);
+		console.log(`There are 3 groups, each with ${perGroup} passengers`);
+	}, wait * 1000);
+
+	console.log(`Will start boarding in ${wait} seconds`);
+};
+
+// perGroup will be created
+// setTimeout will be called and registers the call back function
+// then it will be called in (wait) seconds
+// the last console.log will be printed instantly
+
+// Lets test a variable in the scope chain
+const perGroup = 1000;
+// The closure has priority over the scope chain
+// It will use perGroup that is in the function since it will
+// close out the variable environment
+
+// boarding 180 passengers and waiting 3 seconds
+boardPassengers(180, 3);
